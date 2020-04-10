@@ -1,13 +1,16 @@
-##Da Vinci Firmware based on Repetier (0.92.10) Beta   
+## Da Vinci Firmware based on Repetier (0.92.10)
 ============================
 
 [![Join the chat at https://gitter.im/luc-github/Repetier-Firmware-0.92](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/luc-github/Repetier-Firmware-0.92?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)    
 
-Build Status: [![Build Status](https://travis-ci.org/luc-github/Repetier-Firmware-0.92.svg?branch=master)](https://travis-ci.org/luc-github/Repetier-Firmware-0.92)    
+Build Status: [![Build Status](https://travis-ci.org/luc-github/Repetier-Firmware-4-Davinci.svg?branch=master)](https://travis-ci.org/luc-github/Repetier-Firmware-4-Davinci)    
     
       
 
-This firmware is based on the popular repetier firmware Da Vinci 1.0/A, 2.0 single fan, 2.0/A dual fans and also AiO (NB:scanner function is not supported so AiO will work like an 1.0A)   
+This firmware is based on the popular repetier firmware for Da Vinci <B>1.0/A, 2.0 single fan, 2.0/A dual fans and also AiO</B> (NB:scanner function is not supported so AiO will work like an 1.0A)   
+## Do not use it on PRO or Jr or Mini    
+Be noted original Repetier FW is not compatible wih Davinci boards   
+ 
 If you change the board, currently DUE based are supported with RADDS, as well as Graphical screen and LCD with encoder, there are some sample configuration files provided for RADDS/DUE/GLCD using 1/128 step drivers.
 
 YOU MIGHT DAMAGE YOUR PRINTER OR VOID YOUR WARRANTY, DO IT ON YOUR OWN RISK. When it is possible on 1.0/2.0, currently on 1.0A/2.0A and AiO there is no way to revert to stock fw so be sure of what you are doing.
@@ -20,8 +23,8 @@ The board can be easily exposed by removing the back panel of the printer secure
 
 Here are just a few of the benefits of using this firmware:
 
-* It works with host software such as [repetier host](http://repetier.com) and [OctoPrint](http://octoprint.org/) giving you full control of your hardware.
-* It works stand alone if you use a WIFI SD Card. 
+* It works with host software such as [repetier host](http://repetier.com) and [OctoPrint](http://octoprint.org/), cura, Simplify3D, etc... giving you full control of your hardware.
+* It works stand alone (not connected to PC) if you use a WIFI SD Card or SD card extender. 
 * It allows the use of clear ABS (by disabling optical sensors), as well as other arbitrary filament brands/types as temperatures can be controlled freely and there is no requirement for chiped cartridges. 
 
 You can find more info on the [Voltivo forum](http://voltivo.com/forum/davinci-firmware).  
@@ -31,11 +34,11 @@ Sources are [here](https://github.com/luc-github/Repetier-Firmware-0.92)
 The previous version (based on repetier v0.91) can be found [here](https://github.com/luc-github/Repetier-Firmware)   
 
 ***
-##Current Status
-####Beta - so far so good
+## Current Status
+#### Beta - so far so good
 
 ***
-##Installation
+## Installation
 1. With the machine off remove the back panel and short the jumper JP1 or J37 depending on model.  Some Boards do not have jumper pins exposed but can still be shorted with a conductive wire.
 2. Turn the machine on and wait a few seconds then turn it off again.  The machine will have been flashed removing the current stock firmware and allowing it to be detected as a normal arduino DUE. NOTE: Windows users may need to install drivers to detect the board.  Consult the Voltivo forums.   
 Note : points 1 and 2 are only needed to wipe the stock fw or a corrupted fw, for update they are not necessary.
@@ -46,13 +49,14 @@ NOTE: You do not need to compile arduino from source these files are in the ardu
 5. Open the project file named repetier.ino located in src\ArduinoDUE\Repetier directory in the arduino IDE. 
 6. Modify the DAVINCI define in Configuration.h file to match your targeted Da Vinci.  See below.
 7. Under the tools menu select the board type as Arduino DUE (Native USB Port) and the proper port you have connected to the printer.  NOTE: You can usually find this out by looking at the tools -> port menu both before and after plugging in the printer to your computer's USB.
-8. Press the usual arduino compile and upload button.
+8. Press the usual arduino compile and upload button.    
 If done correctly you will see the arduino sketch compile successfully and output in the log showing the upload status.
-9. Once flash is done : restart printer   
-<H3> If you have black bars and printer is not detected properly, it means you did not do the point 4 properly [check: FAQ#172](https://github.com/luc-github/Repetier-Firmware-0.92/issues/172)</H3> so go back to point 4.
-10. After printer restarted <B>do not forget to send G-Code M502 then M500 </B>from repetier's Print Panel tab <B>or from the printer menu "Settings/Load Fail-Safe"</B> and accept to save the new eeprom settings. 
-11. When update is complete <B>you must calibrate your bed height!</B>Use manual bed leveling in menu
-12. Next you can calibrate your filament as usual, and second extruder offset if you have.
+9. Once flash is done : restart printer         
+<H3> If you have black bars and printer is not detected properly, it means you did not do the point 4 properly [check: FAQ#172](https://github.com/luc-github/Repetier-Firmware-0.92/issues/172)</H3> so go back to point 4.     
+
+10. After printer restarted <B>do not forget to send G-Code M502 then M500 </B>from repetier's Print Panel tab <B>or from the printer menu "Settings/Load Fail-Safe"</B> and accept to save the new eeprom settings.    
+11. When update is complete <B>you must calibrate your bed height!</B>Use manual bed leveling in menu   
+12. Next you can calibrate your filament as usual, and second extruder offset if you have.   
 
 For information on upgrading from or reverting to stock FW and other procedures please check [Da Vinci Voltivo forum](http://voltivo.com/forum/davinci).    
 <h4>:warning:There is no known way to revert to stock FW on 1.0A/2.0A/AiO until today.</h4>     
@@ -78,7 +82,7 @@ Or a great video done by Daniel Gonos: https://www.youtube.com/watch?v=rjuCvlnpB
 Any installation issue ? check the <H3>[Frequent Asked Questions](https://github.com/luc-github/Repetier-Firmware-0.92/issues?utf8=%E2%9C%93&q=is%3Aclosed+label%3AFAQ+)</H3> the answer is in there.
 
 ***
-##TODO or Questions ?
+## TODO or Questions ?
 * [Check issue list](https://github.com/luc-github/Repetier-Firmware-0.92/issues)   
 Do not ask help on repetier github they do not support this FW / printer - please use this [github for issues](https://github.com/luc-github/Repetier-Firmware-0.92/issues)
 
@@ -87,7 +91,7 @@ Do not ask help on repetier github they do not support this FW / printer - pleas
 * [Documentation](https://github.com/luc-github/Repetier-Firmware-0.92/wiki) TBD - feel free to help 
 
 ***
-##Implemented
+## Implemented
 * 0.92.10 [Repetier](https://github.com/repetier/Repetier-Firmware) based   
 * Standard GCODE commands   
 * Single/Dual extruders support DaVinci 1.0/A, 2.0/A all generations, AiO but no scanner support because no application
@@ -115,7 +119,7 @@ Do not ask help on repetier github they do not support this FW / printer - pleas
 * More to come ....
 
 ***
-##How to test Watchdog ?
+## How to test Watchdog ?
 * Connect repetier host and send M281 command.    
 This will generate a timeout  after showing "Triggering watchdog. If activated, the printer will reset." in serial terminal.    
 If watchdog is enabled properly and working the printer will reset and restart.    
@@ -123,10 +127,10 @@ If not, you should have "Watchdog feature was not compiled into this version!" i
 
 
 ***
-##Current menu (not up to date):
+## Current menu (not up to date):
 Easy: <img src='https://cloud.githubusercontent.com/assets/8822552/4748170/bfa0b7e8-5a69-11e4-80b7-02b9c99fe122.png'>   
 Advanced :  <img src='https://cloud.githubusercontent.com/assets/8822552/4748932/bebab9e2-5a7c-11e4-8fea-cdbe3d70820c.png'>   
 
-##Donation:
+## Donation:
 Every support is welcome: [<img src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG_global.gif" border="0" alt="PayPal – The safer, easier way to pay online.">](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VT5LV38N4U3VQ)    
 Especially if need to buy new printer to add FW support.
